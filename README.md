@@ -1,18 +1,22 @@
-# Real Time Twitter Stream with Node and React
+# Real Time Twitter Stream with React
 
-Code repository for the tutorial by @kenwheeler: [Build A Real-Time Twitter Stream with Node and React.js](http://scotch.io/tutorials/javascript/build-a-real-time-twitter-stream-with-node-and-react-js)
+Code 
 
 ## Requirements
 
-- node and npm
+- node for server
+- npm for dependencies
 
 ## How to Use
 
-1. Clone the repo: `git clone git@github.com:scotch-io/react-tweets`
-2. Go into folder: `cd react-tweets`
-3. Install dependencies: `npm install`
-4. Create local MongoDB database called **react-tweets** (configured in `server.js`)
-5. Replace credentials for Twitter API (configured in `config.js`)
+1. Clone the repo: `git clone https://github.com/chouchua/twitterFeed.git`
+2. Install dependencies: `npm install`
+3. Create local MongoDB database called (configured in `server.js`)
+4. Replace credentials for Twitter API (configured in `config.js`)
+    setup twitter application (TBD)
 6. Start the app: `node server.js`
 7. View in browser at: `http://localhost:8080`
-8. Tweet away!
+9. Use Proc file
+
+#Development environment
+- 
