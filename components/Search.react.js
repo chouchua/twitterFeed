@@ -1,18 +1,18 @@
 /** @jsx React.DOM */
 
 var React = require('react');
+var Suggestions = require('./Suggestions.react.js');
 
 module.exports = Search = React.createClass({
     getInitialState:function(){
       return {
-          searchInput:''
+          searchInput:'',
+          cachedSearch:{}
       }  
     },
     handleClick:function(){
         console.log("clicked");
         //update 
-        
-        
     },
     handleChange:function(event){
         console.log(event.target.value);
@@ -21,11 +21,19 @@ module.exports = Search = React.createClass({
         });
         // console.log(this.props.searchInput);
     },
+    processEnter:function(event) {
+        if(event.keyCode == 13 || event.which == 13){
+            console.log('enter pressed')
+        }
+    },
     render: function(){
         return (
+        
         <div className={"stuff " + (this.props.allowed ? "active" : "")}>
-            <input type = 'text' value = {this.state.searchInput} onChange={this.handleChange}/>
+        <h4>Search for tweets</h4>
+            <input type = 'text' onKeyPress={this.processEnter} defaultValue = "Input keyword to search" value = {this.state.searchInput} onChange={this.handleChange}/>
             <button onClick = {this.handleClick}>Search</button>
+            <Suggestions suggest={this.state.searchInput}/>
         </div>
         )
     }
