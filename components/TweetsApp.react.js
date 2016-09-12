@@ -55,24 +55,6 @@ module.exports = TweetsApp = React.createClass({
     request.send();
 
   },
-  
-  searchKeyword: function(keyword){
-    var request = XMLHttpRequest(), self = this;
-    request.open('GET','search/' + keyword, true);
-    request.onload = function(){
-      if (request.status >= 200 && request.status < 400){
-
-        // Load our next page
-        self.loadPagedTweets(JSON.parse(request.responseText));
-
-      } else {
-
-        // Set application state (Not paging, paging complete)
-        self.setState({searchStatus: 'done'});
-
-      }
-    }
-  },
 
   // Method to show the unread tweets
   showNewTweets: function(){
@@ -92,7 +74,7 @@ module.exports = TweetsApp = React.createClass({
 
   // Method to load tweets fetched from the server
   loadPagedTweets: function(newtweets){
-
+    console.log('loading new tweet');
     // So meta lol
     var self = this;
 
@@ -197,7 +179,7 @@ module.exports = TweetsApp = React.createClass({
 
     return (
       <div className="tweets-app">
-        <Search allowed = {this.state.search}/>
+        <Search allowed = {this.state.search} found = {this.loadPagedTweets}/>
         <SearchResults tweets={this.state.tweets}/>
         <Tweets tweets={this.state.tweets} />
         <Loader paging={this.state.paging}/>

@@ -49,14 +49,16 @@ schema.statics.getTweets = function(page, skip, callback) {
 };
 
 schema.statics.searchTitle = function(keyword,callback){
+  
+  console.log(`searching for keyword ${keyword} ...`);
   Tweet.find({screenname:keyword},function(err,docs){
     if(err){
       return handleError(err);
     }
     console.log(docs);
+    callback(docs);
   })
-  console.log(`searching for keyword ${keyword} ...`);
-  // callback(tweets);
+  
 }
 
 
